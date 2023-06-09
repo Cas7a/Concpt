@@ -3,11 +3,9 @@ import banner from "../../assets/jordan.png";
 
 const Home = () => {
   return (
-    <>
-      <div>
-        <img className={classes.banner} src={banner} alt="banner" />
-      </div>
-    </>
+    <div id="home">
+      <img className={classes.banner} src={banner} alt="banner" />
+    </div>
   );
 };
 

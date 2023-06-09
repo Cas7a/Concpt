@@ -1,12 +1,7 @@
 import React from "react";
 
 const Products = () => {
-  return (
-    <div>
-      <h1>Our products</h1>
-      <div></div>
-    </div>
-  );
+  return <div>Products</div>;
 };
 
 export default Products;

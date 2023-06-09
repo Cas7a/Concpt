@@ -1,11 +1,10 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 26px 50px;
+  padding: 22px 50px;
   font-size: 1.3rem;
   background-color: #f3f3f3;
   z-index: 9998;
-  font-family: "Futura", sans-serif;
   font-weight: 500;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

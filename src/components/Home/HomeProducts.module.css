@@ -1,0 +1,29 @@
+.products-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  cursor: pointer;
+  width: 400px;
+  height: 450px;
+  background-color: #f9f6ee;
+  border-radius: 6px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.1rem;
+  padding: 80px 80px;
+}
+
+.products {
+  display: grid;
+  justify-content: center;
+  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+}
