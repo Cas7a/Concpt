@@ -1,0 +1,47 @@
+.mini-cart-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.98rem;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+.cart-item h2 {
+  margin: 0 0 0.5rem 0;
+  color: #323232;
+}
+
+.summary {
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.price {
+  font-weight: 500;
+  color: black;
+}
+
+.amount {
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  color: #323232;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-cart-image {
+  max-width: 40%;
+}
+
+@media (min-width: 768px) {
+  .actions {
+    flex-direction: row;
+  }
+}

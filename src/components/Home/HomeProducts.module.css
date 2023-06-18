@@ -5,13 +5,13 @@
   cursor: pointer;
   width: 400px;
   height: 450px;
-  background-color: #f9f6ee;
+  background-color: white;
   border-radius: 6px;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1300px;
 }
 
 .title {

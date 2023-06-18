@@ -11,30 +11,40 @@
 .modal {
   position: fixed;
   top: 0;
-  right: auto;
-  max-width: 470px;
-  height: 100vh;
+  right: 0;
+  width: 440px;
+  height: calc(100vh - 100px);
   background-color: white;
-  padding: 1rem;
+  padding: 80px 40px 100px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 9999;
-  animation: slide-right 300ms ease-out forwards;
+  animation: slide-right 500ms ease-out forwards;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 768px) {
-  .modal {
-    width: 500px;
-    right: calc(16% - 20rem);
-  }
+.modal.slide-out {
+  animation: slide-out 500ms ease-out forwards;
 }
 
 @keyframes slide-right {
   from {
     opacity: 0;
-    transform: translateX(2rem);
+    transform: translateX(100%);
   }
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
   }
 }
