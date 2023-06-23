@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/sneakers": "http://localhost:5000",
+      "/sneakers": "https://concpt.vercel.app",
     },
   },
 });
