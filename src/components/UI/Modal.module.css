@@ -23,7 +23,7 @@
   flex-direction: column;
 }
 
-.modal.slide-out {
+.modal-slide-out {
   animation: slide-out 500ms ease-out forwards;
 }
 

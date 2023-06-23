@@ -1,11 +1,10 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router";
-import Navbar from "../components/UI/Navbar";
-import { useState } from "react";
-import Cart from "../components/Cart/Cart";
-import Footer from "../components/UI/Footer";
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Navbar from "../components/UI/Navbar";
+import Minicart from "../components/Cart/Minicart/Minicart";
+import Footer from "../components/UI/Footer";
 
 // Scroll to top always after clicking a link
 export function ScrollToTop() {
@@ -31,9 +30,11 @@ const Root = () => {
   return (
     <>
       <ScrollToTop />
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      {cartIsShown && <Minicart onClose={hideCartHandler} />}
       <Navbar onShownCart={showCartHandler} />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

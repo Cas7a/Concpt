@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import classes from "./ProductShowcase.module.css";
 import { useParams } from "react-router-dom";
-import useFetch from "../../Hooks/useFetch";
-import { useContext } from "react";
 import CartContext from "../../store/CartContext";
+import ErrorPage from "../../Pages/ErrorPage";
+import { ProductsContext } from "../../store/ProductContext";
 
 const SIZES = ["XS", "S", "M", "L", "XL"];
 
@@ -28,9 +28,11 @@ const SizesButton = ({ size, activeSize, setActiveSize }) => {
 const ProductShowcase = () => {
   const [activeSize, setActiveSize] = useState(null);
   const [showSizeError, setShowSizeError] = useState(false);
+
+  const productsData = useContext(ProductsContext);
+
   const cartCtx = useContext(CartContext);
   const { productId } = useParams();
-  const { data, isLoading, error } = useFetch("/sneakers");
 
   const addToCartHandler = () => {
     if (activeSize) {
@@ -43,19 +45,20 @@ const ProductShowcase = () => {
         description: productFiltered.description,
         amount: 1,
         size: activeSize,
+        image: productFiltered.image,
       });
     } else {
       setShowSizeError(true);
     }
   };
+  if (!productsData) return null;
 
-  if (isLoading) return <p>LOADING...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-  if (!data) return null;
-
-  const productFiltered = data.find((product) => product.name == productId);
+  const productFiltered = productsData.find(
+    (product) => product.name == productId
+  );
 
   const formattedName = productFiltered.name.replace(/-/g, " ");
+
   return (
     <>
       <div className={classes["product-container"]}>

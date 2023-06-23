@@ -1,20 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./HomeProducts.module.css";
 import useProductsView from "../../Hooks/useProductsView";
+import { ProductsContext } from "../../store/ProductContext";
 
 const HomeProducts = () => {
-  const showProducts = useProductsView(3, "products", "/");
+  const productsData = useContext(ProductsContext);
+  const showProducts = useProductsView(productsData, 3, "products", "/");
 
   return (
-    <section id="home-products">
+    <section className={classes["featured-products"]}>
       <h1 className={classes.title}>Featured Products</h1>
-      <div className={classes.container}>
-        <div className={classes.products}>{showProducts}</div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
+      <div className={classes.container}>{showProducts}</div>
     </section>
   );
 };

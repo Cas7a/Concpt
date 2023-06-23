@@ -27,6 +27,7 @@ const cartReducer = (state, action) => {
         amount: action.product.amount + existingCartProduct.amount,
         size: productSize,
       };
+
       updatedProducts = [...state.products];
       updatedProducts[existingCartProductIndex] = updatedProduct;
     } else {
@@ -96,6 +97,7 @@ const CartProvider = ({ children }) => {
   const cartContext = {
     products: cartState.products,
     total: cartState.total,
+
     addProduct: addProductToCartHandler,
     removeProduct: removeProductFromCartHandler,
     // clearCart: clearCartHandler,

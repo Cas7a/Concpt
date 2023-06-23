@@ -101,9 +101,12 @@ nav,
 section {
   display: block;
 }
+html,
 body {
   line-height: 1;
+  min-height: 100%;
 }
+
 ol,
 ul {
   list-style: none;
@@ -119,7 +122,12 @@ q:after {
   content: "";
   content: none;
 }
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+
+main {
+  min-height: 100%;
+}
+main::after {
+  content: "";
+  display: block;
+  height: 120px;
 }

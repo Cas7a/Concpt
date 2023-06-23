@@ -6,6 +6,7 @@ import ProductDetailsPage from "./Pages/ProductDetailsPage";
 import Root from "./Pages/Root";
 import { Route, createRoutesFromElements, RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
+import CartPage from "./Pages/CartPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ export const router = createBrowserRouter(
           />
           <Route path="products" element={<ProductsPage />} />
           <Route path="products/:productId" element={<ProductDetailsPage />} />
+          <Route path="cart" element={<CartPage />} />
         </>
       }
     />

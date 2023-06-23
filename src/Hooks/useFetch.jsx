@@ -6,10 +6,13 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
     async function fetchData() {
+      setIsLoading(true);
       try {
         const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
         const data = await response.json();
         setData(data);
       } catch (error) {

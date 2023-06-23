@@ -1,10 +1,13 @@
 import classes from "./Home.module.css";
-import banner from "../../assets/jordan.png";
 
 const Home = () => {
   return (
-    <div id="home">
-      <img className={classes.banner} src={banner} alt="banner" />
+    <div className={classes.home}>
+      <img
+        className={classes.banner}
+        src={"https://wallpapercave.com/wp/wp5858201.png"}
+        alt="banner"
+      />
     </div>
   );
 };

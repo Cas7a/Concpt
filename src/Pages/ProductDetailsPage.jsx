@@ -5,7 +5,7 @@ import HomeProducts from "../components/Home/HomeProducts";
 const ProductDetailsPage = () => {
   return (
     <>
-      <ProductShowcase />;
+      <ProductShowcase />
       <HomeProducts />
     </>
   );

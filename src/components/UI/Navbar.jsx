@@ -1,12 +1,7 @@
 import React from "react";
 import classes from "./Navbar.module.css";
-import { Link } from "react-router-dom";
 import CartIconButton from "../Cart/CartIconButton";
-
-const styles = {
-  textDecoration: "none",
-  color: "inherit",
-};
+import CustomLink from "./Link";
 
 // const scrollToTop = () => {
 //   window.scrollTo(0, 0);
@@ -18,14 +13,10 @@ const Navbar = ({ onShownCart }) => {
       <div className={classes["navbar-logo"]}>Concpt</div>
       <ul>
         <li>
-          <Link to="/" style={styles}>
-            Home
-          </Link>
+          <CustomLink to="/">Home</CustomLink>
         </li>
         <li>
-          <Link to="products" style={styles}>
-            Products
-          </Link>
+          <CustomLink to="products">Products</CustomLink>
         </li>
         <li>Search</li>
         <li onClick={onShownCart}>Bag</li>

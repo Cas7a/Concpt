@@ -8,6 +8,8 @@ const Product = ({ image, price, name, color }) => {
         className={classes["product-image"]}
         src={image}
         alt="Product Image"
+        width="500"
+        height="500"
       ></img>
       <h3>{name}</h3>
       <div className={classes.color}>{color}</div>
