@@ -2,6 +2,8 @@ import Home from "./components/Home/Home";
 import HomeProducts from "./components/Home/HomeProducts";
 import ProductsPage from "./Pages/ProductsPage";
 import ErrorPage from "./Pages/ErrorPage";
+import AboutUs from "./components/Home/AboutUs";
+import NewsletterForm from "./components/Home/NewsletterForm";
 import ProductDetailsPage from "./Pages/ProductDetailsPage";
 import Root from "./Pages/Root";
 import { Route, createRoutesFromElements, RouterProvider } from "react-router";
@@ -22,6 +24,8 @@ export const router = createBrowserRouter(
               <>
                 <Home />
                 <HomeProducts />
+                <AboutUs />
+                <NewsletterForm />
               </>
             }
           />
