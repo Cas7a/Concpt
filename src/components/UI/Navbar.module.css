@@ -1,16 +1,20 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 400px;
-  height: 70px;
   font-size: 1.3rem;
   background-color: white;
   z-index: 9998;
   font-weight: 500;
-  align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
+}
+
+.header-inner {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  max-width: 1300px;
+  align-items: center;
+  padding: 30px;
 }
 
 .navbar ul {

@@ -10,17 +10,19 @@ import CustomLink from "./Link";
 const Navbar = ({ onShownCart }) => {
   return (
     <nav className={classes.navbar}>
-      <div className={classes["navbar-logo"]}>Concpt</div>
-      <ul>
-        <li>
-          <CustomLink to="/">Home</CustomLink>
-        </li>
-        <li>
-          <CustomLink to="products">Products</CustomLink>
-        </li>
-        <li>Search</li>
-        <li onClick={onShownCart}>Bag</li>
-      </ul>
+      <div className={classes["header-inner"]}>
+        <div className={classes["navbar-logo"]}>Concpt</div>
+        <ul>
+          <li>
+            <CustomLink to="/">Home</CustomLink>
+          </li>
+          <li>
+            <CustomLink to="products">Products</CustomLink>
+          </li>
+          <li>Search</li>
+          <li onClick={onShownCart}>Bag</li>
+        </ul>
+      </div>
     </nav>
   );
 };

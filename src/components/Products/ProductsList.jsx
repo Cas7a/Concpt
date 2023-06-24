@@ -12,8 +12,6 @@ const ProductsList = () => {
     <div className={classes.container}>
       <h1 className={classes.title}>Products</h1>
       <div className={classes["products-container"]}>{showProducts}</div>
-      <div className={classes["products-container"]}>{showProducts}</div>
-      <div className={classes["products-container"]}>{showProducts}</div>
     </div>
   );
 };
