@@ -28,7 +28,13 @@ const MobileSlider = ({ slides }) => {
 
 const HomeProducts = () => {
   const productsData = useContext(ProductsContext);
-  const showProducts = useProductsView(productsData, 3, "products", "/");
+  const showProducts = useProductsView(
+    productsData,
+    3,
+    "products",
+    "/",
+    "home"
+  );
 
   return (
     <>

@@ -62,6 +62,7 @@ const Navbar = ({ onShownCart }) => {
             <li className="cursor-pointer border-b border-solid border-[#E8E8E8]">
               <CustomLink to="/">Home</CustomLink>
             </li>
+
             <li className="cursor-pointer border-b border-solid border-[#E8E8E8]">
               <CustomLink to="products">Products</CustomLink>
             </li>

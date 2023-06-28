@@ -1,8 +1,14 @@
 import React from "react";
-import Product from "../components/Home/Product";
+import Product from "../components/UI/Product";
 import CustomLink from "../components/UI/Link";
 
-const useProductsView = (productsData, maxProductsToShow, basePath, slash) => {
+const useProductsView = (
+  productsData,
+  maxProductsToShow,
+  basePath,
+  slash,
+  location
+) => {
   if (!productsData) return null;
 
   const showProducts = productsData
@@ -15,6 +21,7 @@ const useProductsView = (productsData, maxProductsToShow, basePath, slash) => {
           price={product.price}
           name={product.name.replace(/-/g, " ")}
           color={product.color}
+          location={location}
         />
       </CustomLink>
     ));
