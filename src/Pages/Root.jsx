@@ -30,7 +30,7 @@ const Root = () => {
   return (
     <>
       <ScrollToTop />
-      {cartIsShown && <Minicart onClose={hideCartHandler} />}
+      <Minicart onClose={hideCartHandler} cartIsShown={cartIsShown} />
       <Navbar onShownCart={showCartHandler} />
       <main>
         <Outlet />

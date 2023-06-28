@@ -1,3 +1,32 @@
-/* @tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
+@layer components {
+  .btn-newsletter {
+    @apply transition duration-500 cursor-pointer hover:bg-white hover:text-black active:bg-white active:text-black 
+    bg-[#323232] border border-solid uppercase border-[#323232] text-white 
+    p-2 w-[97%] text-lg font-semibold md:w-[70%] md:ml-5;
+  }
+
+  .btn-bag {
+    @apply text-[0.9rem] uppercase font-medium border border-solid border-[#1e1e1e] bg-white text-black w-[48%] pl-0 pr-0
+    transition duration-500 hover:bg-[#323232] hover:text-white;
+  }
+
+  .btn-checkout {
+    @apply text-[0.9rem] uppercase font-medium border border-solid border-[#1e1e1e] bg-[#323232] text-white w-[48%] pl-0 pr-0
+    transition duration-500 hover:bg-white hover:text-black;
+  }
+}
+
+.futura {
+  font-family: inherit;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

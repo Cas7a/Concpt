@@ -1,11 +1,11 @@
-import Modal from "../../UI/Modal";
+import CartModal from "../../UI/CartModal";
 import classes from "./Minicart.module.css";
 import { useContext, useState } from "react";
 import CartContext from "../../../store/CartContext";
 import MinicartProduct from "./MinicartProduct";
 import CustomLink from "../../UI/Link";
 
-const Minicart = ({ onClose }) => {
+const Minicart = ({ onClose, cartIsShown }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
   const cartCtx = useContext(CartContext);
@@ -22,7 +22,7 @@ const Minicart = ({ onClose }) => {
   // };
 
   const cartProducts = (
-    <ul className={classes["cart-items"]}>
+    <ul className="flex flex-1 flex-col no-scrollbar items-start overflow-auto border-b border-solid border-[#1e1e1e]">
       {cartCtx.products.map((product) => (
         <MinicartProduct
           key={product._id + product.size}
@@ -38,7 +38,7 @@ const Minicart = ({ onClose }) => {
     </ul>
   );
 
-  const modalActions = (
+  const cartIsEmpty = (
     <div className={classes["mini-cart-empty"]}>
       <p>Your don't have any products in your cart</p>
       <button onClick={onClose}>Continue Shopping</button>
@@ -47,36 +47,46 @@ const Minicart = ({ onClose }) => {
 
   const cartModalContent = (
     <>
-      {hasItems && <div className={classes["mini-cart-header"]}>Added</div>}
+      {hasItems && (
+        <div className="text-[22px] font-medium uppercase h-[60px] pt-8">
+          Added
+        </div>
+      )}
       {hasItems && cartProducts}
       {hasItems && (
         <>
-          <div className={classes.total}>
-            <div className={classes["total-price"]}>
-              <span>Total:</span>
-              <span>{totalPrice}</span>
+          <div className="flex flex-col text-[1.3rem] mt-[1rem] mb-[1rem] gap-5">
+            <div className="flex justify-between items-center">
+              <span className="text-[1.1rem] lg:text-[20px]">Total:</span>
+              <span className="text-[14px] lg:text-[17px]">{totalPrice}</span>
             </div>
 
-            <div className={classes.actions}>
+            <div className="flex justify-between">
               {hasItems && (
-                <button id={classes["bag-btn"]} onClick={onClose}>
+                <button className="btn-bag" onClick={onClose}>
                   <CustomLink to="/cart">View Bag</CustomLink>
                 </button>
               )}
               {hasItems && (
-                <button>
-                  <CustomLink to={"/"}>Checkout</CustomLink>
+                <button className="btn-checkout">
+                  <CustomLink to={"/"} pt={"10"}>
+                    Checkout
+                  </CustomLink>
                 </button>
               )}
             </div>
           </div>
         </>
       )}
-      {!hasItems && modalActions}
+      {!hasItems && cartIsEmpty}
     </>
   );
 
-  return <Modal onClose={onClose}>{cartModalContent}</Modal>;
+  return (
+    <CartModal onClose={onClose} cartIsShown={cartIsShown}>
+      {cartModalContent}
+    </CartModal>
+  );
 };
 
 export default Minicart;

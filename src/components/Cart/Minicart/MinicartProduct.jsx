@@ -1,11 +1,8 @@
-import classes from "./MinicartProduct.module.css";
 import { useContext } from "react";
 import { ProductsContext } from "../../../store/ProductContext";
 
 const MinicartProduct = ({ name, amount, propPrice, productId, size }) => {
   const productsData = useContext(ProductsContext);
-  console.log(productsData);
-
   if (!productsData) return null;
 
   const productFiltered = productsData.find(
@@ -15,14 +12,18 @@ const MinicartProduct = ({ name, amount, propPrice, productId, size }) => {
   const price = `$${propPrice.toFixed(2)}`;
 
   return (
-    <li className={classes["mini-cart-product"]}>
-      <img src={productFiltered.image} className={classes["mini-cart-image"]} />
+    <li className="flex justify-between items-center mb-10">
+      <img src={productFiltered.image} className="w-[155px] lg:w-[230px]" />
       <div>
-        <h2>{name}</h2>
-        <h1>{size}</h1>
-        <div className={classes.summary}>
-          <span className={classes.price}>{price}</span>
-          <span className={classes.amount}>x{amount}</span>
+        <h2 className="text-[#323232] mb-1 text-[14px] font-medium lg:text-[18px]">
+          {name}
+        </h2>
+        <span className="text-[14px] lg:text-[19px]">Size: {size}</span>
+        <div className="flex flex-col text-[14px] mt-1 lg:text-[17px]">
+          <span className="font-medium text-[#323232] mb-1">x{amount}</span>
+          <span className="font-medium text-black text-[13px] lg:text-[15px]">
+            {price}
+          </span>
         </div>
       </div>
     </li>

@@ -1,19 +1,22 @@
 import React from "react";
-import classes from "./Product.module.css";
 
 const Product = ({ image, price, name, color }) => {
   return (
-    <li className={classes.product}>
-      <img
-        className={classes["product-image"]}
-        src={image}
-        alt="Product Image"
-        width="500"
-        height="500"
-      ></img>
-      <h3>{name}</h3>
-      <div className={classes.color}>{color}</div>
-      <div className={classes.price}>${price}</div>
+    <li className="flex flex-col">
+      <img className="w-[100%] pb-7" src={image} alt="Product Image"></img>
+      <div className="flex justify-around items-center mb-8">
+        <div>
+          <h3 className="text-[1.05rem] font-medium mb-[2px] sm:text-[1.2rem]">
+            {name}
+          </h3>
+          <span className="text-[0.8rem] font-normal text-[#1e1e1e] sm:text-[1rem]">
+            {color}
+          </span>
+        </div>
+        <span className="text-[0.9rem] font-medium sm:text-[1rem]">
+          ${price}
+        </span>
+      </div>
     </li>
   );
 };

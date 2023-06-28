@@ -1,11 +1,11 @@
-import classes from "./Home.module.css";
-
 const Home = () => {
   return (
-    <div className={classes.home}>
+    <div className="flex justify-center">
       <img
-        className={classes.banner}
-        src={"https://wallpapercave.com/wp/wp5858201.png"}
+        className="w-full object-contain"
+        src={
+          "https://cdn.dribbble.com/users/329726/screenshots/17315241/media/fd0fc6abd660cab8405134179d99af35.gif"
+        }
         alt="banner"
       />
     </div>
