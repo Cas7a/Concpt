@@ -16,10 +16,6 @@
     @apply text-[0.9rem] uppercase font-medium border border-solid border-[#1e1e1e] bg-[#323232] text-white w-[48%] pl-0 pr-0
     transition duration-500 hover:bg-white hover:text-black;
   }
-
-  .home-products {
-    @apply;
-  }
 }
 
 .futura {

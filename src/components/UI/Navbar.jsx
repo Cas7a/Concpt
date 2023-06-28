@@ -85,7 +85,7 @@ const Navbar = ({ onShownCart }) => {
       </AnimatePresence>
 
       {/* Desktop */}
-      <nav className="text-header bg-white font-medium sticky top-0 shadow-header z-[999]">
+      <nav className="text-header bg-white font-medium sticky top-0 z-[999]">
         <div className="flex justify-between lg:flex lg: items-center p-6 mx-auto max-w-[1200px]">
           <BurgerOpen
             className="cursor-pointer lg:hidden"
