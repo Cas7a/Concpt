@@ -4,7 +4,9 @@ import useFetch from "../Hooks/useFetch";
 export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const { data, isLoading, error } = useFetch("/sneakers");
+  const { data, isLoading, error } = useFetch(
+    "https://concpt-server.vercel.app/sneakers"
+  );
   const [productsData, setProductsData] = useState(null);
 
   useEffect(() => {
