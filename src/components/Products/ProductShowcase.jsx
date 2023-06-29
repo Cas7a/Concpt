@@ -14,7 +14,7 @@ const SizesButton = ({ size, activeSize, setActiveSize }) => {
 
   const buttonIsActive =
     activeSize === size
-      ? `${"rounded-[5px] border border-solid border-gray-300"} ${"border border-solid border-black"}`
+      ? `${"rounded-[5px] border border-solid border-black"}`
       : `${"rounded-[5px] border border-solid border-gray-300"}`;
 
   return (

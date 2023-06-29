@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import CartContext from "../../../store/CartContext";
 import MinicartProduct from "./MinicartProduct";
 import CustomLink from "../../UI/Link";
+import { ReactComponent as BurgerClose } from "../../../assets/burgermenuclose.svg";
 
 const Minicart = ({ onClose, cartIsShown }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,9 +49,12 @@ const Minicart = ({ onClose, cartIsShown }) => {
   const cartModalContent = (
     <>
       {hasItems && (
-        <div className="text-[22px] font-medium uppercase h-[60px] pt-8">
-          Added
-        </div>
+        <>
+          <div className="text-[22px] font-medium uppercase h-[60px] pt-8">
+            Added
+            <BurgerClose className="absolute right-6" onClick={onClose} />
+          </div>
+        </>
       )}
       {hasItems && cartProducts}
       {hasItems && (
