@@ -52,7 +52,7 @@ const Minicart = ({ onClose, cartIsShown }) => {
         <>
           <div className="text-[22px] font-medium uppercase h-[60px] pt-8">
             Added
-            <BurgerClose className="absolute right-6" onClick={onClose} />
+            <BurgerClose className="absolute right-6 top-7" onClick={onClose} />
           </div>
         </>
       )}
