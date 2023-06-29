@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import classes from "./ProductShowcase.module.css";
 import { useParams } from "react-router-dom";
 import CartContext from "../../store/CartContext";
 import { ProductsContext } from "../../store/ProductContext";
