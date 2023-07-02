@@ -1,9 +1,16 @@
 import React from "react";
-import classes from "./Cart.module.css";
+
 import CartContext from "../../store/CartContext";
 import { useContext } from "react";
 import CartProduct from "./CartProduct";
 import CustomLink from "../UI/Link";
+import {
+  VisaLogo,
+  PaypalLogo,
+  MastercardLogo,
+  MaestroLogo,
+  AmexLogo,
+} from "../Home/Logos";
 
 const Cart = () => {
   const cartCtx = useContext(CartContext);
@@ -32,66 +39,55 @@ const Cart = () => {
   );
 
   return (
-    <div className={classes["cart-container"]}>
-      <h3 className={classes.title}>Your Bag</h3>
-      <div className={classes["cart-bag"]}>
-        <div className={classes["cart-list"]}>{cartProducts}</div>
-        <div className={classes["cart-summary"]}>
-          <aside className={classes["cart-order-total"]}>
-            <h2
-              style={{
-                fontSize: "1.3rem",
-                fontWeight: "500",
-
-                marginBottom: "20px",
-              }}
-            >
-              Order Summary
-            </h2>
+    <div className="flex flex-col items-center text-base py-4 px-4 sm:px-8 2xl:w-[1300px] 2xl:mx-auto">
+      <h3 className="font-medium text-[1.3rem] uppercase mb-4 2xl:text-[1.5rem]">
+        Your Bag
+      </h3>
+      <div className="flex flex-col border-t border-solid border-black lg:flex-row">
+        <div className="lg:w-4/6 lg:w- lg:pr-10">{cartProducts}</div>
+        <div className="pb-12 lg:w-2/6">
+          <aside className="border-t border-solid border-black pt-4 lg:border-t-0 lg:border-x lg:p-6">
+            <h2 className="font-medium text-xl pb-2">Order Summary</h2>
             <dl>
-              <div className={classes["summary-dl-div"]}>
+              <div className="flex justify-between text-lg font-normal">
                 <dt>Items:</dt>
-                <dd>{totalProducts}</dd>
+                <dd className="text-[15px]">{totalProducts}</dd>
               </div>
-              <div className={classes["summary-dl-div"]}>
+              <div className="flex justify-between text-lg font-normal">
                 <dt>Shipping:</dt>
-                <dd>$15</dd>
+                <dd className="text-[15px]">$15</dd>
               </div>
-              <div
-                style={{ fontWeight: "500" }}
-                className={classes["summary-dl-div"]}
-              >
+              <div className="flex justify-between text-lg font-medium">
                 <dt>Total:</dt>
-                <dd>$ {cartCtx.total}</dd>
+                <dd className="text-[15px]">$ {cartCtx.total}</dd>
               </div>
             </dl>
-            <button className={classes.button}>
+            <button className="btn-bag-checkout">
               <CustomLink to={"/"}>Checkout</CustomLink>
             </button>
           </aside>
-          <div className={classes["shipping-info"]}>
-            <p>
-              SHIPPING & RETURNS
-              <br />
-              Italy: approximately 1-2 working days (excluding the Italian
-              Islands which may take 2-3 working days). More info
-              <br />
-              European Union: approximately 2-3 working days. More info Rest of
-              the world: approximately 4-5 working days. More info
-              <br />
-              Delivery duties are included in the item price when shipping to
-              all EU countries, New Europe, Switzerland, Japan, South Korea,
-              Hong Kong SAR, Canada, China Mainland, Singapore, Australia,
-              Taiwan Region, Thailand, United Arab Emirates and the United
-              States. All import duties are included in your order the price you
-              see is the price you pay.
-              <br />
-              For any reason, customers can return the order for free, entirely
-              or partially. concpt.com refunds within 14 days from the receipt
-              of the merchandise. More info
-              <br />
-              Need more information? Read our Shipping & Delivery conditions
+          <div className="mt-4 text-justify lg:p-4 lg:mt-0 lg:text-left lg:border border-solid border-black">
+            <h1 className="font-medium text-[17px]">SHIPPING & RETURNS</h1>
+            <p className="text-[15px] leading-snug my-3">
+              Thank you for shopping at Concpt. All orders from Concpt are
+              subject to our shipping policy, outlined below.
             </p>
+            <p className="text-[15px] leading-snug my-3">
+              If you have any questions about our shipping practices, please
+              contact our dedicated support team at concpt@gmail.com. Where We
+              Ship Concpt is pleased to provide domestic and international
+              shipping options.
+            </p>
+            <p className="text-[15px] leading-snug my-3">
+              An estimate of the time it takes to deliver your order will be
+              provided on our website. Please remember that the time it takes to
+              process your order is a separate estimate from the time it takes
+              to ship and deliver your order.
+            </p>
+            <MaestroLogo className="mr-2" />
+            <MastercardLogo className="mr-2" />
+            <VisaLogo className="mr-2" />
+            <AmexLogo />
           </div>
         </div>
       </div>

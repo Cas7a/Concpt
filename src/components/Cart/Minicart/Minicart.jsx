@@ -1,5 +1,4 @@
 import CartModal from "../../UI/CartModal";
-import classes from "./Minicart.module.css";
 import { useContext, useState } from "react";
 import CartContext from "../../../store/CartContext";
 import MinicartProduct from "./MinicartProduct";
@@ -40,9 +39,14 @@ const Minicart = ({ onClose, cartIsShown }) => {
   );
 
   const cartIsEmpty = (
-    <div className={classes["mini-cart-empty"]}>
+    <div className="m-auto text-[1.07rem] font-normal flex flex-col items-center gap-7">
       <p>Your don't have any products in your cart</p>
-      <button onClick={onClose}>Continue Shopping</button>
+      <button
+        className="cursor-pointer futura text-xl font-normal bg-[#323232] border border-solid border-[#323232] text-white p-3 transition duration-500 hover:bg-white hover:text-black"
+        onClick={onClose}
+      >
+        Continue Shopping
+      </button>
     </div>
   );
 
@@ -59,7 +63,7 @@ const Minicart = ({ onClose, cartIsShown }) => {
       {hasItems && cartProducts}
       {hasItems && (
         <>
-          <div className="flex flex-col text-[1.3rem] mt-[1rem] mb-[1rem] gap-5">
+          <div className="flex flex-col text-[1.3rem] mt-[1rem] mb-[1.7rem] gap-5">
             <div className="flex justify-between items-center">
               <span className="text-[1.1rem] lg:text-[20px]">Total:</span>
               <span className="text-[14px] lg:text-[17px]">{totalPrice}</span>

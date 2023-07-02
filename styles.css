@@ -16,6 +16,10 @@
     @apply text-[0.9rem] uppercase font-medium border border-solid border-[#1e1e1e] bg-[#323232] text-white w-[48%] pl-0 pr-0
     transition duration-500 hover:bg-white hover:text-black;
   }
+
+  .btn-bag-checkout {
+    @apply uppercase text-[0.9rem] font-medium border border-solid border-[#323232] text-white min-w-full mt-3 bg-[#323232] transition duration-500 hover:bg-white hover:text-black;
+  }
 }
 
 .futura {
