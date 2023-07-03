@@ -38,12 +38,12 @@ const HomeProducts = () => {
 
   return (
     <>
-      <section className="flex flex-col items-center pt-12 pb-12 pl-4 pr-4 lg:pt-24 lg:pb-24 xl:pt-44 xl:pb-44">
+      <section className="flex flex-col items-center pt-12 pb-12 pl-4 pr-4 lg:pt-24 lg:pb-24 xl:py-36">
         <h1 className="text-[1.5rem] font-medium text-center pt-3 pb-10 sm:text-[1.8rem] lg:text-[2.2rem]">
           Featured Products
         </h1>
         <MobileSlider slides={showProducts} />
-        <div className="hidden lg:flex w-[100%] xl:w-[80%]">
+        <div className="hidden lg:flex  xl:w-[1300px]">
           {showProducts.map((product, index) => (
             <div key={index} className="w-[100%]">
               {product}

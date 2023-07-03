@@ -61,15 +61,11 @@ const ProductShowcase = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center mt-10 pl-6 pr-6 lg:flex-row lg:ml-10 lg:mr-20 lg:p-0 xl:justify-center xl:mt-28">
-        <div className=" xl:w-[40%]">
-          <img
-            src={productFiltered.image}
-            alt="Product"
-            className="w-full h-auto "
-          />
+      <div className="flex flex-col items-center mt-10 px-6 lg:flex-row lg:ml-10 lg:mr-20 lg:p-0 xl:justify-center xl:mt-20 xl:max-w-[1600px] xl:mx-auto">
+        <div className=" xl:w-[35%]">
+          <img src={productFiltered.image} alt="Product" className="w-full" />
         </div>
-        <div className="flex flex-col w-full lg:ml-10 lg:w-[70%] xl:w-[40%] xl:ml-12 2xl:w-[30%]">
+        <div className="flex flex-col w-full lg:w-[70%] xl:w-[40%] 2xl:w-[30%]">
           <h1 className="text-[1.3rem] leading-8 font-medium">
             {formattedName}
           </h1>

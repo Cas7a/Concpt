@@ -42,7 +42,7 @@ const Minicart = ({ onClose, cartIsShown }) => {
     <div className="m-auto text-[1.07rem] font-normal flex flex-col items-center gap-7">
       <p>Your don't have any products in your cart</p>
       <button
-        className="cursor-pointer futura text-xl font-normal bg-[#323232] border border-solid border-[#323232] text-white p-3 transition duration-500 hover:bg-white hover:text-black"
+        className="uppercase cursor-pointer text-[17px] futura font-normal bg-[#323232] border border-solid border-[#323232] text-white p-3 transition duration-500 hover:bg-white hover:text-black"
         onClick={onClose}
       >
         Continue Shopping
