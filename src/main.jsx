@@ -4,11 +4,14 @@ import App from "./App.jsx";
 import "/reset.css";
 import CartProvider from "./store/CartProvider.jsx";
 import { ProductsProvider } from "./store/ProductContext.jsx";
+import { MinicartProvider } from "./store/MinicartContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CartProvider>
-    <ProductsProvider>
-      <App />
-    </ProductsProvider>
+    <MinicartProvider>
+      <ProductsProvider>
+        <App />
+      </ProductsProvider>
+    </MinicartProvider>
   </CartProvider>
 );

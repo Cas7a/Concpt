@@ -5,7 +5,7 @@ import MinicartProduct from "./MinicartProduct";
 import CustomLink from "../../UI/Link";
 import { ReactComponent as BurgerClose } from "../../../assets/burgermenuclose.svg";
 
-const Minicart = ({ onClose, cartIsShown }) => {
+const Minicart = ({ onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
   const cartCtx = useContext(CartContext);
@@ -23,18 +23,21 @@ const Minicart = ({ onClose, cartIsShown }) => {
 
   const cartProducts = (
     <ul className="flex flex-1 flex-col no-scrollbar items-start overflow-auto border-b border-solid border-[#1e1e1e]">
-      {cartCtx.products.map((product) => (
-        <MinicartProduct
-          key={product._id + product.size}
-          productId={product._id}
-          name={product.name}
-          amount={product.amount}
-          propPrice={product.price}
-          size={product.size}
-          // onRemove={cartProductRemoveHandler.bind(null, product._id)}
-          // onAdd={cartProductAddHandler.bind(null, product)}
-        />
-      ))}
+      {cartCtx.products
+        .slice()
+        .reverse()
+        .map((product) => (
+          <MinicartProduct
+            key={product._id + product.size}
+            productId={product._id}
+            name={product.name}
+            amount={product.amount}
+            propPrice={product.price}
+            size={product.size}
+            // onRemove={cartProductRemoveHandler.bind(null, product._id)}
+            // onAdd={cartProductAddHandler.bind(null, product)}
+          />
+        ))}
     </ul>
   );
 
@@ -56,7 +59,10 @@ const Minicart = ({ onClose, cartIsShown }) => {
         <>
           <div className="text-[22px] font-medium uppercase h-[60px] pt-8">
             Added
-            <BurgerClose className="absolute right-6 top-7" onClick={onClose} />
+            <BurgerClose
+              className="cursor-pointer absolute right-6 top-7"
+              onClick={onClose}
+            />
           </div>
         </>
       )}
@@ -77,9 +83,7 @@ const Minicart = ({ onClose, cartIsShown }) => {
               )}
               {hasItems && (
                 <button className="btn-checkout">
-                  <CustomLink to={"/"} pt={"10"}>
-                    Checkout
-                  </CustomLink>
+                  <CustomLink to={"/"}>Checkout</CustomLink>
                 </button>
               )}
             </div>
@@ -90,11 +94,7 @@ const Minicart = ({ onClose, cartIsShown }) => {
     </>
   );
 
-  return (
-    <CartModal onClose={onClose} cartIsShown={cartIsShown}>
-      {cartModalContent}
-    </CartModal>
-  );
+  return <CartModal onClose={onClose}>{cartModalContent}</CartModal>;
 };
 
 export default Minicart;

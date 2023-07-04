@@ -112,9 +112,12 @@ const Navbar = ({ onShownCart }) => {
             <li className="cursor-pointer">About us</li>
             <li className="cursor-pointer">Collections</li>
           </ul>
-          <div>
+          <div className="flex items-end">
             <SearchIcon className="cursor-pointer mr-4" />
             <CartIcon className="cursor-pointer" onClick={onShownCart} />
+            <div className="flex items-center justify-center text-[14px] font-medium text-white bg-[#323232] rounded-[50%] w-5 h-5">
+              <span>0</span>
+            </div>
           </div>
         </div>
       </nav>

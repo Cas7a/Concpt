@@ -1,4 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { useContext } from "react";
+import { MinicartContext } from "../../store/MinicartContext";
 
 const Backdrop = ({ onClose }) => {
   return (
@@ -12,7 +14,9 @@ const Backdrop = ({ onClose }) => {
   );
 };
 
-const CartModal = ({ children, onClose, cartIsShown }) => {
+const CartModal = ({ children, onClose }) => {
+  const minicartCtx = useContext(MinicartContext);
+
   const dropIn = {
     hidden: {
       x: "100%",
@@ -40,7 +44,7 @@ const CartModal = ({ children, onClose, cartIsShown }) => {
   return (
     <>
       <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
-        {cartIsShown && (
+        {minicartCtx.cartIsShown && (
           <>
             <Backdrop onClose={onClose} />
             <motion.div

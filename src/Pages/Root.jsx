@@ -1,10 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Outlet } from "react-router";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/UI/Navbar";
 import Minicart from "../components/Cart/Minicart/Minicart";
 import Footer from "../components/UI/Footer";
+import { MinicartContext } from "../store/MinicartContext";
 
 // Scroll to top always after clicking a link
 export function ScrollToTop() {
@@ -17,21 +18,13 @@ export function ScrollToTop() {
 }
 
 const Root = () => {
-  const [cartIsShown, setCartIsShown] = useState(false);
-
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
+  const minicartCtx = useContext(MinicartContext);
 
   return (
     <>
       <ScrollToTop />
-      <Minicart onClose={hideCartHandler} cartIsShown={cartIsShown} />
-      <Navbar onShownCart={showCartHandler} />
+      <Minicart onClose={minicartCtx.hideMinicart} />
+      <Navbar onShownCart={minicartCtx.showMinicart} />
       <main>
         <Outlet />
       </main>

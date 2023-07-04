@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import CartContext from "../../store/CartContext";
 import { ProductsContext } from "../../store/ProductContext";
+import { MinicartContext } from "../../store/MinicartContext";
 
 const SIZES = ["XS", "S", "M", "L", "XL"];
 
@@ -30,6 +31,7 @@ const ProductShowcase = () => {
   const [showSizeError, setShowSizeError] = useState(false);
 
   const productsData = useContext(ProductsContext);
+  const minicartCtx = useContext(MinicartContext);
 
   const cartCtx = useContext(CartContext);
   const { productId } = useParams();
@@ -58,6 +60,11 @@ const ProductShowcase = () => {
   );
 
   const formattedName = productFiltered.name.replace(/-/g, " ");
+
+  const showAndAddToCart = () => {
+    addToCartHandler();
+    minicartCtx.showMinicart();
+  };
 
   return (
     <>
@@ -94,9 +101,9 @@ const ProductShowcase = () => {
           )}
           <button
             className="cursor-pointer w-full p-4 bg-[#323232] border-none transition duration-500 hover:bg-[#5f5f5f] active:bg-[#5f5f5f] mt-10"
-            onClick={addToCartHandler}
+            onClick={showAndAddToCart}
           >
-            <span className="text-white font-normal text-[17px]">
+            <span className="uppercase text-white font-normal text-[16px]">
               Add to cart
             </span>
           </button>
