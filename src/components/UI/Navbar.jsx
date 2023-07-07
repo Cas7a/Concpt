@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import CustomLink from "./Link";
 import { ReactComponent as CartIcon } from "../../assets/bag.svg";
 import { ReactComponent as SearchIcon } from "../../assets/search.svg";
@@ -6,9 +6,12 @@ import { ReactComponent as BurgerOpen } from "../../assets/burgermenu.svg";
 import { ReactComponent as BurgerClose } from "../../assets/burgermenuclose.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import "../../../styles.css";
+import CartContext from "../../store/CartContext";
 
 const Navbar = ({ onShownCart }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const ctx = useContext(CartContext);
+  const totalItemsInCart = ctx.totalItemsInCart();
 
   const handleClose = () => {
     setIsMenuOpen(false);
@@ -113,10 +116,10 @@ const Navbar = ({ onShownCart }) => {
             <li className="cursor-pointer">Collections</li>
           </ul>
           <div className="flex items-end">
-            <SearchIcon className="cursor-pointer mr-4" />
+            <SearchIcon className="hidden cursor-pointer mr-3 lg:block" />
             <CartIcon className="cursor-pointer" onClick={onShownCart} />
             <div className="flex items-center justify-center text-[14px] font-medium text-white bg-[#323232] rounded-[50%] w-5 h-5">
-              <span>0</span>
+              <span>{totalItemsInCart}</span>
             </div>
           </div>
         </div>

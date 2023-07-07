@@ -16,7 +16,6 @@ const cartReducer = (state, action) => {
       (product) =>
         product._id === action.product._id && product.size === productSize
     );
-
     const existingCartProduct = state.products[existingCartProductIndex];
 
     let updatedProducts;
@@ -94,12 +93,23 @@ const CartProvider = ({ children }) => {
   //     dispatchCartAction({ type: "CLEAR" });
   //   };
 
+  let totalItemsInCart;
+
   const cartContext = {
     products: cartState.products,
     total: cartState.total,
 
     addProduct: addProductToCartHandler,
     removeProduct: removeProductFromCartHandler,
+    totalItemsInCart: () => {
+      totalItemsInCart = 0;
+      cartContext.products.forEach((product) => {
+        totalItemsInCart += product.amount;
+      });
+
+      return totalItemsInCart;
+    },
+
     // clearCart: clearCartHandler,
   };
 
