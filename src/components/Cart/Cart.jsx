@@ -1,5 +1,4 @@
 import React from "react";
-
 import CartContext from "../../store/CartContext";
 import { useContext } from "react";
 import CartProduct from "./CartProduct";
@@ -14,6 +13,7 @@ import {
 
 const Cart = () => {
   const cartCtx = useContext(CartContext);
+  const hasItems = cartCtx.products.length > 0;
 
   const cartProducts = (
     <>
@@ -38,7 +38,7 @@ const Cart = () => {
     0
   );
 
-  return (
+  const itemsInBag = (
     <div className="flex flex-col items-center text-base py-4 px-4 sm:px-8 2xl:w-[1300px] 2xl:mx-auto">
       <h3 className="font-medium text-[1.3rem] uppercase mb-4 2xl:text-[1.5rem]">
         Your Bag
@@ -92,6 +92,27 @@ const Cart = () => {
         </div>
       </div>
     </div>
+  );
+
+  const noItemsInBag = (
+    <div className="flex flex-col items-center justify-center h-[700px]">
+      <div className="text-center">
+        <h1 className=" text-[25px] font-medium pb-4">Your bag is empty!</h1>
+        <button
+          className="uppercase cursor-pointer text-[16px] futura font-normal bg-[#323232]
+        border border-solid border-[#323232] text-white p-1 transition duration-500 hover:bg-white hover:text-black"
+        >
+          <CustomLink to="/products">Go to products</CustomLink>
+        </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      {hasItems && itemsInBag}
+      {!hasItems && noItemsInBag}
+    </>
   );
 };
 
