@@ -24,7 +24,7 @@ const Product = ({ image, price, name, color, location }) => {
             className={
               location === "home"
                 ? "text-[1.05rem] font-medium mb-[2px] sm:text-[1.2rem]"
-                : "text-[0.9rem] leading-none font-medium mb-[1px] md:text-[1.05rem] md:font-normal"
+                : "text-[0.9rem] leading-none font-medium mb-[1px] md:text-[1.05rem] md:font-[500]"
             }
           >
             {name}
