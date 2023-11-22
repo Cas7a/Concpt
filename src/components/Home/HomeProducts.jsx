@@ -10,7 +10,7 @@ const MobileSlider = ({ slides }) => {
   return (
     <Swiper
       modules={[Scrollbar]}
-      className="w-[80%] lg:hidden"
+      className="w-[80%]  lg:hidden"
       spaceBetween={1}
       slidesPerView={1}
       scrollbar={{ draggable: true }}
